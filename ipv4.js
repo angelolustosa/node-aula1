@@ -8,7 +8,7 @@ const adaptadores =  os.networkInterfaces();
 const wifi = Object.keys(adaptadores).find(k => k.includes('Wi-Fi') || k.includes('Ethernet'));
 //console.log('adaptador-wifi:', wifi /* adaptadores['Wi-Fi 3'] */);
 
-const adaptador = adaptadores[`${wifi}`];
+const adaptador = adaptadores[wifi];
 //console.log('adaptadores:', adaptador);
 
 const objIpv4 = adaptador.find(a => a.family === 'IPv4');
@@ -25,7 +25,7 @@ objIpv4: {
 }
 */
 
-console.log(objIpv4.address);
+//console.log(objIpv4.address);
 
 module.exports = objIpv4.address;
 
