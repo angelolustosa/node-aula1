@@ -1,15 +1,15 @@
+/* 
+    Módulo criado por nós para retornar o número do IPV4
+*/
 const os = require('os');
 
 const adaptadores =  os.networkInterfaces();
 
-const wifi = Object.keys(adaptadores).find(k => k.includes('Wi-Fi'));
-
+const wifi = Object.keys(adaptadores).find(k => k.includes('Wi-Fi') || k.includes('Ethernet'));
 //console.log('adaptador-wifi:', wifi /* adaptadores['Wi-Fi 3'] */);
 
 const adaptador = adaptadores[`${wifi}`];
-
 //console.log('adaptadores:', adaptador);
-
 
 const objIpv4 = adaptador.find(a => a.family === 'IPv4');
 
@@ -27,5 +27,5 @@ objIpv4: {
 
 console.log(objIpv4.address);
 
-return objIpv4.address;
+module.exports = objIpv4.address;
 
